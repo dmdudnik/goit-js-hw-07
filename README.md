@@ -1,94 +1,174 @@
 # goit-js-hw-03
 
-Критерии приема
+Задание 1
 
-    Создан репозиторий goit-js-hw-03
-    При сдаче домашней работы есть ссылка на исходные файлы в репозитории
-    Каждое задание выполнено в отдельном файле с именем task-номер_задания.js. Используй <script type="module"> чтобы закрыть код задания в отдельной области видимости и избежать конфликтов имен идентификаторов.
-    Имена переменных и функций понятные, описательные
-    Код отформатирован с помощью Prettier
+В HTML есть список категорий ul#categories.
 
-Задание 1 Напиши скрипт, который, для объекта user, последовательно:
+<ul id="categories">
+  <li class="item">
+    <h2>Животные</h2>
 
-    добавляет поле mood со значением 'happy'
-    заменяет значение hobby на 'skydiving'
-    заменяет значение premium на false
-    выводит содержимое объекта user в формате ключ:значение используя Object.keys() и for...of
+    <ul>
+      <li>Кот</li>
+      <li>Хомяк</li>
+      <li>Лошадь</li>
+      <li>Попугай</li>
+    </ul>
 
-const user = { name: 'Mango', age: 20, hobby: 'html', premium: true, };
+  </li>
+  <li class="item">
+    <h2>Продукты</h2>
 
-Задание 2 Напиши функцию countProps(obj), считающую кол-во свойств в объекте.
-Функция возвращает число - количество свойств.
+    <ul>
+      <li>Хлеб</li>
+      <li>Петрушка</li>
+      <li>Творог</li>
+    </ul>
 
-const countProps = function(obj) { // твой код };
+  </li>
+  <li class="item">
+    <h2>Технологии</h2>
 
-/\*
+    <ul>
+      <li>HTML</li>
+      <li>CSS</li>
+      <li>JavaScript</li>
+      <li>React</li>
+      <li>Node</li>
+    </ul>
 
-- Вызовы функции для проверки работоспособности твоей реализации. \*/
-  console.log(countProps({})); // 0
+  </li>
+</ul>
 
-console.log(countProps({ name: 'Mango', age: 2 })); // 2
+Напиши скрипт, который выполнит следующие операции.
 
-console.log(countProps({ mail: 'poly@mail.com', isOnline: true, score: 500 }));
-// 3
+Посчитает и выведет в консоль количество категорий в ul#categories, то есть
+элементов li.item. Получится 'В списке 3 категории.'.
 
-Задание 3 Напиши функцию findBestEmployee(employees), которая принимает объект
-сотрудников и возвращает имя самого продуктивного (который выполнил больше всех
-задач). Сотрудники и кол-во выполненых задач содержатся как свойства объекта в
-формате "имя":"кол-во задач".
+Для каждого элемента li.item в списке ul#categories, найдет и выведет в консоль
+текст заголовка элемента (тега h2) и количество элементов в категории (всех
+вложенных в него элементов li).
 
-const findBestEmployee = function(employees) { // твой код };
+Например для первой категории получится:
 
-/\*
+    Категория: Животные
+    Количество элементов: 4
 
-- Вызовы функции для проверки работоспособности твоей реализации. \*/
-  console.log( findBestEmployee({ ann: 29, david: 35, helen: 1, lorence: 99, }),
-  ); // lorence
+Задание 2
 
-console.log( findBestEmployee({ poly: 12, mango: 17, ajax: 4, }), ); // mango
+В HTML есть пустой список ul#ingredients.
 
-console.log( findBestEmployee({ lux: 147, david: 21, kiwi: 19, chelsy: 38, }),
-); // lux
+<ul id="ingredients"></ul>
 
-Задание 4 Напиши функцию countTotalSalary(employees) принимающую объект зарплат.
-Функция считает общую сумму запрплаты работников и возращает ее. Каждое поле
-объекта, передаваемого в функцию, имеет вид "имя":"зарплата".
+В JS есть массив строк.
 
-Задание 5 Напиши функцию getAllPropValues(arr, prop), которая получает массив
-объектов и имя свойства. Возвращает массив значений определенного свойства prop
-из каждого объекта в массиве.
+const ingredients = [ 'Картошка', 'Грибы', 'Чеснок', 'Помидоры', 'Зелень',
+'Приправы', ];
 
-const products = [ { name: 'Радар', price: 1300, quantity: 4 }, { name:
-'Сканер', price: 2700, quantity: 3 }, { name: 'Дроид', price: 400, quantity: 7
-}, { name: 'Захват', price: 1200, quantity: 2 }, ];
+Напиши скрипт, который для каждого элемента массива ingredients создаст
+отдельный li, после чего вставит все li за одну операцию в список
+ul.ingredients. Для создания DOM-узлов используй document.createElement().
+Задание 3
 
-const getAllPropValues = function(arr, prop) { // твой код };
+Напиши скрипт для создания галлереи изображений по массиву данных.
 
-/\*
+В HTML есть список ul#gallery.
 
-- Вызовы функции для проверки работоспособности твоей реализации. \*/
-  console.log(getAllPropValues(products, 'name')); // ['Радар', 'Сканер',
-  'Дроид', 'Захват']
+<ul id="gallery"></ul>
 
-console.log(getAllPropValues(products, 'quantity')); // [4, 3, 7, 2]
+Используй массив объектов images для создания тегов img вложенных в li. Для
+создания разметки используй шаблонные строки и insertAdjacentHTML().
 
-console.log(getAllPropValues(products, 'category')); // []
+    Все элементы галереи должны добавляться в DOM за одну операцию вставки.
+    Добавь минимальное оформление галереи флексбоксами или гридами через css-классы.
 
-Задание 6 Напиши функцию calculateTotalPrice(allProdcuts, productName), которая
-получает массив объектов и имя продукта (значение свойства name). Возвращает
-общую стоимость продукта (цена \* количество).
+const images = [ { url:
+'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+alt: 'White and Black Long Fur Cat', }, { url:
+'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+alt: 'Orange and White Koi Fish Near Yellow Koi Fish', }, { url:
+'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+alt: 'Group of Horses Running', }, ];
 
-Вызовы функции для проверки работоспособности твоей реализации.
+Задание 4
 
-const products = [ { name: 'Радар', price: 1300, quantity: 4 }, { name:
-'Сканер', price: 2700, quantity: 3 }, { name: 'Дроид', price: 400, quantity: 7
-}, { name: 'Захват', price: 1200, quantity: 2 }, ];
+Счетчик состоит из спана и кнопок, которые должны увеличивать и уменьшать
+значение счетчика на 1.
 
-const calculateTotalPrice = function(allProdcuts, productName) { // твой код };
+    Создай переменную counterValue в которой будет хранится текущее значение счетчика.
+    Создай функции increment и decrement для увеличения и уменьшения значения счетчика
+    Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса
 
-/\*
+<div id="counter">
+  <button type="button" data-action="decrement">-1</button>
+  <span id="value">0</span>
+  <button type="button" data-action="increment">+1</button>
+</div>
 
-- Вызовы функции для проверки работоспособности твоей реализации. \*/
-  console.log(calculateTotalPrice(products, 'Радар')); // 5200
+Задание 5
 
-console.log(calculateTotalPrice(products, 'Дроид')); // 2800
+Напиши скрипт который, при наборе текста в инпуте input#name-input (событие
+input), подставляет его текущее значение в span#name-output. Если инпут пустой,
+в спане должна отображаться строка 'незнакомец'.
+
+<input type="text" placeholder="Ваше имя?" id="name-input" />
+<h1>Привет, <span id="name-output">незнакомец</span>!</h1>
+
+Задание 6
+
+Напиши скрипт, который бы при потере фокуса на инпуте, проверял его содержимое
+на правильное количество символов.
+
+<input
+  type="text"
+  id="validation-input"
+  data-length="6"
+  placeholder="Введи 6 символов"
+/>
+
+    Сколько символов должно быть в инпуте, указывается в его атрибуте data-length.
+    Если введено подходящее количество, то border инпута становится зеленым, если неправильное - красным.
+
+Для добавления стилей, используй CSS-классы valid и invalid.
+
+#validation-input { border: 3px solid #bdbdbd; }
+
+#validation-input.valid { border-color: #4caf50; }
+
+#validation-input.invalid { border-color: #f44336; }
+
+Задание 7
+
+Напиши скрипт, который реагирует на изменение значения input#font-size-control
+(событие input) и изменяет инлайн-стиль span#text обновляя свойство font-size. В
+результате при перетаскивании ползунка будет меняться размер текста.
+
+<input id="font-size-control" type="range" />
+<br />
+<span id="text">Абракадабра!</span>
+
+Задание 8 - дополнительное, выполнять не обязательно
+
+Напиши скрипт создания и очистки коллекции элементов. Пользователь вводит
+количество элементов в input и нажимает кнопку Создать, после чего рендерится
+коллекция. При нажатии на кнопку Очистить, коллекция элементов очищается.
+
+Создай функцию createBoxes(amount), которая принимает 1 параметр amount - число.
+Функция создает столько div, сколько указано в amount и добавляет их в
+div#boxes.
+
+Каждый созданный div:
+
+    Имеет случайный rgb цвет фона
+    Размеры самого первого div - 30px на 30px
+    Каждый следующий div после первого, должен быть шире и выше предыдущего на 10px
+
+Создай функцию destroyBoxes(), которая очищает div#boxes.
+
+<div id="controls">
+  <input type="number" min="0" max="100" step="1" />
+  <button type="button" data-action="render">Создать</button>
+  <button type="button" data-action="destroy">Очистить</button>
+</div>
+
+<div id="boxes"></div>
