@@ -7,10 +7,11 @@ const ingredients = [
   "Приправы",
 ];
 const ingridientList = document.querySelector("ul");
-const addIngridients = ingredients.forEach((ingridient) => {
+const addIngridients = ingredients.map((ingridient) => {
   const ingridientItem = document.createElement("li");
   ingridientItem.textContent = ingridient;
-  ingridientList.appendChild(ingridientItem);
-});
 
+  return ingridientItem;
+});
+ingridientList.append(...addIngridients);
 //console.log(ingridientList);

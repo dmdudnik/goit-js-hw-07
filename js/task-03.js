@@ -30,11 +30,8 @@ const images = [
 // console.log(galleryList);
 
 const galleryList = document.querySelector("#gallery");
-const createGallery = images.forEach((image) => {
-  const imgSrc = image.url;
-  const imgAlt = image.alt;
-  galleryList.insertAdjacentHTML(
-    "afterbegin",
-    `<li><img src = ${imgSrc} alt = ${imgAlt}></li>`
-  );
+const createGallery = images.map((image) => {
+  return `<li><img src = ${image.url} alt = ${image.alt}></li>`;
 });
+
+galleryList.insertAdjacentHTML("afterbegin", createGallery);
